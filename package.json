@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MapleFactory/MemoAPIServer/issues"
   },
-  "homepage": "https://github.com/MapleFactory/MemoAPIServer#readme"
+  "homepage": "https://github.com/MapleFactory/MemoAPIServer#readme",
+  "dependencies": {
+    "koa": "^2.11.0"
+  }
 }
