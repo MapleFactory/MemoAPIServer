@@ -1,0 +1,19 @@
+{
+  "name": "memoapiserver",
+  "version": "1.0.0",
+  "description": "API server of memo project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MapleFactory/MemoAPIServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MapleFactory/MemoAPIServer/issues"
+  },
+  "homepage": "https://github.com/MapleFactory/MemoAPIServer#readme"
+}
