@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MapleFactory/MemoAPIServer#readme",
   "dependencies": {
-    "koa": "^2.11.0"
+    "koa": "^2.11.0",
+    "pm2": "^4.4.0"
   }
 }
