@@ -18,6 +18,8 @@
   "homepage": "https://github.com/MapleFactory/MemoAPIServer#readme",
   "dependencies": {
     "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^8.0.8",
     "pm2": "^4.4.0"
   }
 }
