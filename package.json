@@ -20,6 +20,10 @@
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^8.0.8",
-    "pm2": "^4.4.0"
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "pm2": "^4.4.0",
+    "sequelize": "^5.21.7",
+    "sequelize-cli": "^5.5.1"
   }
 }
