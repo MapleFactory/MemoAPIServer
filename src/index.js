@@ -6,8 +6,10 @@ const app = new Koa();
 const router = new Router();
 
 const userApi = require('./api/user');
+const memoApi = require('./api/memo');
 
 router.use(userApi.routes());
+router.use(memoApi.routes());
 
 app.use(bodyParser());
 app.use(router.routes());
