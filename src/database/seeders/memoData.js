@@ -13,6 +13,7 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Memo', [{
+      memoName: 'testName',
       memoAuthor: 'testId',
       memoContent: 'Memo Test!'
     }], {});
