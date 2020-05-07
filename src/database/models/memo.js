@@ -1,13 +1,33 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Memo = sequelize.define('Memos', {
-    memoId: DataTypes.INTEGER.UNSIGNED,
-    memoName: DataTypes.STRING,
-    memoAuthor: DataTypes.STRING,
-    memoOpen: DataTypes.BOOLEAN,
-    memoContent: DataTypes.STRING,
-    upMemoId: DataTypes.INTEGER.UNSIGNED,
-    downMemoId: DataTypes.INTEGER.UNSIGNED
+    memoId: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    memoName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    memoAuthor: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    memoOpen: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    },
+    memoContent: {
+      type: DataTypes.STRING
+    },
+    upMemoId: {
+      type: DataTypes.INTEGER.UNSIGNED
+    },
+    downMemoId: {
+      type: DataTypes.INTEGER.UNSIGNED
+    }
   }, {
     freezeTableName: true,
     timestamps: false
