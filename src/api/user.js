@@ -17,4 +17,20 @@ userApi.get('/test', (ctx, next) => {
     ctx.status = 200;
 });
 
+userApi.get('/tUsers', (ctx, next) => {
+    const { userId } = ctx.query;
+
+    model.sequelize.models.User.findOne({
+        where: { userId: userId }
+    }).then(result => {
+        console.log("[User]Get user info test");
+
+        ctx.body = result;
+        ctx.status = 200;
+    }).catch(err => {
+        console.log(err);
+        ctx.status = 500;
+    });
+});
+
 module.exports = userApi;
