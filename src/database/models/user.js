@@ -4,7 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.STRING,
     userPw: DataTypes.STRING,
     salt: DataTypes.STRING
-  }, {});
+  }, {
+    freezeTableName: true,
+    timestamps: false
+  });
   User.associate = function(models) {
     // associations can be defined here
   };
