@@ -17,10 +17,10 @@ userApi.get('/test', (ctx, next) => {
     ctx.status = 200;
 });
 
-userApi.get('/tUsers', (ctx, next) => {
+userApi.get('/tUsers', async (ctx, next) => {
     const { userId } = ctx.query;
 
-    model.sequelize.models.Users.findOne({
+    await model.sequelize.models.Users.findOne({
         where: { userId: userId }
     }).then(result => {
         console.log("[User]Get user info test");
