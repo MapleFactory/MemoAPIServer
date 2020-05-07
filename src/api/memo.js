@@ -17,4 +17,20 @@ userApi.get('/test/:str', (ctx, next) => {
     ctx.status = 200;
 });
 
+userApi.get('/tMemos', (ctx, next) => {
+    const { memoId } = ctx.query;
+
+    model.sequelize.models.Memo.findOne({
+        where: { memoId: memoId }
+    }).then(result => {
+        console.log("[Memo]Get memo info test");
+
+        ctx.body = result;
+        ctx.status = 200;
+    }).catch(err => {
+        console.log(err);
+        ctx.status = 500;
+    });
+});
+
 module.exports = userApi;
