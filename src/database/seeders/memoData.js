@@ -12,7 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Memo', [{
+    return queryInterface.bulkInsert('Memos', [{
       memoName: 'testName',
       memoAuthor: 'testId',
       memoContent: 'Memo Test!'
@@ -27,6 +27,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-    return queryInterface.bulkDelete('Memo', null, {});
+    return queryInterface.bulkDelete('Memos', null, {});
   }
 };
