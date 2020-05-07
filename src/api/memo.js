@@ -20,7 +20,7 @@ userApi.get('/test/:str', (ctx, next) => {
 userApi.get('/tMemos', (ctx, next) => {
     const { memoId } = ctx.query;
 
-    model.sequelize.models.Memo.findOne({
+    model.sequelize.models.Memos.findOne({
         where: { memoId: memoId }
     }).then(result => {
         console.log("[Memo]Get memo info test");
