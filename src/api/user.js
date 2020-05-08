@@ -25,7 +25,10 @@ userApi.get('/tUsers', async (ctx, next) => {
     }).then(result => {
         console.log("[User]Get user info test");
 
-        ctx.body = result;
+        if (result)
+            ctx.body = result;
+        else
+            ctx.body = "There is no user.";
         ctx.status = 200;
     }).catch(err => {
         console.log(err);

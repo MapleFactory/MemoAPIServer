@@ -25,7 +25,10 @@ userApi.get('/tMemos', async (ctx, next) => {
     }).then(result => {
         console.log("[Memo]Get memo info test");
 
-        ctx.body = result;
+        if (result)
+            ctx.body = result;
+        else
+            ctx.body = "There is no memo.";
         ctx.status = 200;
     }).catch(err => {
         console.log(err);
