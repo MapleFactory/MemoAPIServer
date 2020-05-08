@@ -20,6 +20,11 @@ userApi.get('/test/:str', (ctx, next) => {
 userApi.get('/tMemos', async (ctx, next) => {
     const { memoId } = ctx.query;
 
+    if (memoId === undefined || memoId === "") {
+        ctx.status = 400;
+        return;
+    }
+
     await model.sequelize.models.Memos.findOne({
         where: { memoId: memoId }
     }).then(result => {

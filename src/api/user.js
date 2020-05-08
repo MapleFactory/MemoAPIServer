@@ -20,6 +20,11 @@ userApi.get('/test', (ctx, next) => {
 userApi.get('/tUsers', async (ctx, next) => {
     const { userId } = ctx.query;
 
+    if (userId === undefined || userId === "") {
+        ctx.status = 400;
+        return;
+    }
+
     await model.sequelize.models.Users.findOne({
         where: { userId: userId }
     }).then(result => {
