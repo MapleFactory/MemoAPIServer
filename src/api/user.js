@@ -62,4 +62,20 @@ userApi.post('/users', async (ctx, next) => {
     });
 });
 
+userApi.delete('/users', async (ctx, next) => {
+
+    const { userId } = ctx.request.body;
+
+    // DB에서 유저 정보 제거
+    await model.sequelize.models.Users.destroy({
+        where: { userId: userId }
+    }).then(() => {
+        console.log("[User]Delete success: Sign Out");
+        ctx.status = 200;
+    }).catch(err => {
+        console.log(err);
+        ctx.status = 500;
+    });
+});
+
 module.exports = userApi;
