@@ -1,5 +1,6 @@
 const Router = require('koa-router');
 const model = require('../database/models');
+const crypto = require('crypto');
 
 const userApi = new Router();
 
@@ -45,9 +46,13 @@ userApi.post('/users', async (ctx, next) => {
 
     const { userId, userPw } = ctx.request.body;
 
+    // 유저 비밀번호 암호화
+    const salt = crypto.randomBytes(64).toString('base64');
+    const encryptedPw = crypto.pbkdf2Sync(userPw, salt, 10000, 128, 'sha512').toString('base64');
+
     // DB에 유저 정보 등록
     await model.sequelize.models.Users.create({
-        userId: userId, userPw: userPw, salt: "tempSalt"
+        userId: userId, userPw: encryptedPw, salt: salt
     }).then(() => {
         console.log("[User]Create Success: Sign Up");
         ctx.status = 200;
