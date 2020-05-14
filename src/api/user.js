@@ -41,4 +41,20 @@ userApi.get('/tUsers', async (ctx, next) => {
     });
 });
 
+userApi.post('/users', async (ctx, next) => {
+
+    const { userId, userPw } = ctx.request.body;
+
+    // DB에 유저 정보 등록
+    await model.sequelize.models.Users.create({
+        userId: userId, userPw: userPw, salt: "tempSalt"
+    }).then(() => {
+        console.log("[User]Create Success: Sign Up");
+        ctx.status = 200;
+    }).catch(err => {
+        console.log(err);
+        ctx.status = 500;
+    });
+});
+
 module.exports = userApi;
