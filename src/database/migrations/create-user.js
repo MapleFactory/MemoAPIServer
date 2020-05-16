@@ -13,6 +13,11 @@ module.exports = {
       salt: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      nickname: {
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false
       }
     });
   },
