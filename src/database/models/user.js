@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     salt: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    nickname: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
     }
   }, {
     freezeTableName: true,
