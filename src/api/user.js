@@ -44,7 +44,7 @@ userApi.get('/tUsers', async (ctx, next) => {
 
 userApi.post('/users', async (ctx, next) => {
 
-    const { userId, userPw } = ctx.request.body;
+    const { userId, userPw, nickname } = ctx.request.body;
 
     // 유저 비밀번호 암호화
     const salt = crypto.randomBytes(64).toString('base64');
@@ -52,7 +52,7 @@ userApi.post('/users', async (ctx, next) => {
 
     // DB에 유저 정보 등록
     await model.sequelize.models.Users.create({
-        userId: userId, userPw: encryptedPw, salt: salt
+        userId: userId, userPw: encryptedPw, salt: salt, nickname: nickname
     }).then(() => {
         console.log("[User]Create Success: Sign Up");
         ctx.status = 200;
