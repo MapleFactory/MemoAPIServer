@@ -41,4 +41,21 @@ userApi.get('/tMemos', async (ctx, next) => {
     });
 });
 
+userApi.post('/memos', async (ctx, next) => {
+
+    const { memoName, memoOpen, memoContent, upMemoId } = ctx.request.body;
+
+    // DB에 메모 정보 등록
+    await model.sequelize.models.Memos.create({
+        memoName: memoName, memoAuthor: "testAuthor", memoOpen: memoOpen,
+        memoContent: memoContent, upMemoId: upMemoId, downMemoId: null
+    }).then(() => {
+        console.log("[Memo]Create Success!");
+        ctx.status = 200;
+    }).catch(err => {
+        console.log(err);
+        ctx.status = 500;
+    });
+});
+
 module.exports = userApi;
