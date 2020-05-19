@@ -58,4 +58,20 @@ userApi.post('/memos', async (ctx, next) => {
     });
 });
 
+userApi.delete('/memos', async (ctx, next) => {
+
+    const { memoId } = ctx.request.body;
+
+    // DB에서 메모 정보 제거
+    await model.sequelize.models.Memos.destroy({
+        where: { memoId: memoId }
+    }).then(() => {
+        console.log("[Memo]Delete success!");
+        ctx.status = 200;
+    }).catch(err => {
+        console.log(err);
+        ctx.status = 500;
+    });
+});
+
 module.exports = userApi;
