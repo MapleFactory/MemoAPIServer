@@ -18,6 +18,9 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false
+      },
+      motto: {
+        type: Sequelize.STRING
       }
     });
   },

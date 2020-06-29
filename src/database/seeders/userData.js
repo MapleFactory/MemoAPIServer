@@ -16,7 +16,8 @@ module.exports = {
       userId: 'testId',
       userPw: 'testPw',
       salt: 'testSalt',
-      nickname: 'testNickname'
+      nickname: 'testNickname',
+      motto: 'testMotto'
     }], {});
   },
 
