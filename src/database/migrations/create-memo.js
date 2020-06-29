@@ -22,12 +22,6 @@ module.exports = {
       },
       memoContent: {
         type: Sequelize.STRING
-      },
-      upMemoId: {
-        type: Sequelize.INTEGER.UNSIGNED
-      },
-      downMemoId: {
-        type: Sequelize.INTEGER.UNSIGNED
       }
     });
   },

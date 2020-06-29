@@ -21,12 +21,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     memoContent: {
       type: DataTypes.STRING
-    },
-    upMemoId: {
-      type: DataTypes.INTEGER.UNSIGNED
-    },
-    downMemoId: {
-      type: DataTypes.INTEGER.UNSIGNED
     }
   }, {
     freezeTableName: true,
